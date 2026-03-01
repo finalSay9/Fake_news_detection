@@ -6,11 +6,13 @@ import os
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-file_path = os.path.join(BASE_DIR, "hello.csv")
+file_path = os.path.join(BASE_DIR, "house.csv")
 
 
 
 df = pd.read_csv(file_path)
+df["Month"] = pd.to_datetime(df["Month"]).dt.month
+df = pd.get_dummies(df, columns=["District"])
 
 
 router = APIRouter(
@@ -22,4 +24,6 @@ router = APIRouter(
 
 @router.get('/read_data')
 def read_data():
-    return df.to_dict()
+    return df.to_dict(orient='records')
+
+print(df.head())
