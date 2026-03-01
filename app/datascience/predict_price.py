@@ -1,2 +1,8 @@
 from sklearn.linear_model import LinerRegression
 from sklearn.model_selection import train_test_split
+
+
+
+
+model = LinerRegression()
+model.fit()
