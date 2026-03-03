@@ -18,14 +18,16 @@ df = pd.read_csv(file_path)
 # df['District'].value_counts()
 
 
-data = pd.DataFrame({
-    'Month': [1,2,3,4,5,6,7,8,9,10,11,12],
-    'District': ['A','B','C','D','E','F','G','H','I','J','K','L'],
-    'Price': [100,150,200,250,300,350,400,450,500,550,600,650]
-}, index=[0,1,2,3,4,5,6,7,8,9,10,11])
+df = pd.DataFrame(np.random.rand(10,10),
+                  index=[f'Row{i}' for i in range(10)],
+                  columns=[f'Col{j}' for j in range(10)])
 
-result = data['Month'] * data['Price']
+data = pd.Series(np.random.rand(10),
+                index=[f'Row{i}' for i in range(10)],
+                )
 
+
+result = df.add(data, axis='index')
 print(result)
 
 
