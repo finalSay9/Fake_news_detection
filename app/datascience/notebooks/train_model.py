@@ -10,21 +10,22 @@ file_path = os.path.join(BASE_DIR, "house.csv")
 
 
 
-data = pd.read_csv(file_path)
+df = pd.read_csv(file_path)
 # df["Month"] = pd.to_datetime(df["Month"]).dt.month
 # df = pd.get_dummies(df, columns=["District"])
 # df.describe()
 # df.info()
-hello = data['District'].value_counts(normalize=True)
+#hello = data['District'].value_counts(normalize=True)
 
 
-df = pd.DataFrame({
-    'Product': ['iphone','samsung','oneplus','xiaomi','techno','iphone'],
-    'Price': [999,899,699,499,299,999]
 
-})
 
-print(hello)
+bin_edges =[0,10000000,17000000,20000000,25000000,30000000]
+group_prices = ['cheap','affordable','expensive','too expensive','luxury']
+
+df['Price_Category'] = pd.cut(df['House_Price'], bins=bin_edges, labels=group_prices, include_lowest=True)
+
+print(df)
 
 
 
