@@ -18,11 +18,12 @@ df = pd.read_csv(file_path)
 # df['District'].value_counts()
 
 
-data = pd.Series([1,2,3,4,5,6])
-
-
-
-print(df.values)
+data = pd.Dataframe({
+    'Month': [1,2,3,4,5,6,7,8,9,10,11,12],
+    'District': ['A','B','C','D','E','F','G','H','I','J','K','L'],
+    'Price': [100,150,200,250,300,350,400,450,500,550,600,650],
+    
+})
 
 
 
