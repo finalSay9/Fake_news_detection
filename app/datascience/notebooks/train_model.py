@@ -18,12 +18,15 @@ df = pd.read_csv(file_path)
 # df['District'].value_counts()
 
 
-data = pd.Dataframe({
+data = pd.DataFrame({
     'Month': [1,2,3,4,5,6,7,8,9,10,11,12],
     'District': ['A','B','C','D','E','F','G','H','I','J','K','L'],
-    'Price': [100,150,200,250,300,350,400,450,500,550,600,650],
-    
-})
+    'Price': [100,150,200,250,300,350,400,450,500,550,600,650]
+}, index=[0,1,2,3,4,5,6,7,8,9,10,11])
+
+result = data['Month'] * data['Price']
+
+print(result)
 
 
 
