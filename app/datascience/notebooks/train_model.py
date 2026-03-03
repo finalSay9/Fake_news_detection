@@ -11,17 +11,20 @@ file_path = os.path.join(BASE_DIR, "house.csv")
 
 
 df = pd.read_csv(file_path)
-df["Month"] = pd.to_datetime(df["Month"]).dt.month
-df = pd.get_dummies(df, columns=["District"])
-df.describe()
-df.info()
-df['District'].value_counts()
+# df["Month"] = pd.to_datetime(df["Month"]).dt.month
+# df = pd.get_dummies(df, columns=["District"])
+# df.describe()
+# df.info()
+# df['District'].value_counts()
 
 
-print(df)
-
-
+data = pd.Series([1,2,3,4,5,6])
 
 
 
-print(df.head())
+print(df.values)
+
+
+
+
+
